@@ -1,0 +1,13 @@
+[project]
+name = "era4-frontend"
+version = "0.1.0"
+description = "ERA4 Frontend with FastAPI Backend"
+authors = [{name = "ERA4 Team"}]
+requires-python = ">=3.8.1"
+
+[tool.uv]
+dev-dependencies = [
+    "pytest>=7.4.0",
+    "black>=23.0.0",
+    "flake8>=6.0.0"
+] 
