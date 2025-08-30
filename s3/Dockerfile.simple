@@ -1,4 +1,4 @@
-# Use Python 3.11 slim image for smaller size
+# Use Python 3.11 slim image
 FROM python:3.11-slim
 
 # Set working directory
@@ -10,14 +10,10 @@ RUN apt-get update && apt-get install -y \
     curl \
     && rm -rf /var/lib/apt/lists/*
 
-# Install UV package manager
-RUN curl -LsSf https://astral.sh/uv/install.sh | sh
-ENV PATH="/root/.cargo/bin:$PATH"
-
 # Copy requirements first for better caching
 COPY requirements.txt .
 
-# Install Python dependencies using pip (more reliable in Docker)
+# Install Python dependencies
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Copy project files
